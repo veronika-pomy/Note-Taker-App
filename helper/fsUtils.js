@@ -1,9 +1,4 @@
 const fs = require('fs');
-const utils = require('util');
-
-// promise for fs.readFile function
-    // explain why 
-const readJsonFile = utils.promisify(fs.readFile);
 
 // fs.writeFile for json file
     // directory is the destination or path to file
@@ -29,7 +24,6 @@ const appendJsonFile = (text, file) => {
 };
 
 module.exports = {
-    readJsonFile,
     writeJsonFile,
     appendJsonFile
 };
