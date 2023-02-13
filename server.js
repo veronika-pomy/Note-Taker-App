@@ -41,14 +41,17 @@ app.get('/api/notes', (req, res) => {
 // GET Route for a specific note by id
 app.get('api/notes/:id', (req, res) => {
     const noteId = req.params.note_id;
-    readJsonFile('./db/db.json')
-      .then((data) => JSON.parse(data))
-      .then((json) => {
-        const result = json.filter((note) => note.note_id === noteId);
-        return result.length > 0
-          ? res.json(result)
-          : res.json('No note with that ID');
-      });
+    fs.readFile('./db/db.json','utf8', (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            let notesRead = JSON.parse(data);
+            let result = notesRead.filter((note) => note.note_id === noteId);
+            return result.length > 0
+            ? res.json(result)
+            : res.json(`Error: no note with ${noteId} ID`);
+        }
+    })
   });
 
 // POST Route for a new note ot be added to json file with saved notes
@@ -84,22 +87,22 @@ app.post('/api/notes', (req, res) => {
 });
 
 // DELETE Route for specific note by id
-app.delete('api/notes/:id', (req, res) => {
-    const noteId = req.params.note_id;
-    readJsonFile('./db/db.json')
-      .then((data) => JSON.parse(data))
-      .then((json) => {
+// app.delete('api/notes/:id', (req, res) => {
+//     const noteId = req.params.note_id;
+//     fs.readFile('./db/db.json','utf8')
+//       .then((data) => JSON.parse(data))
+//       .then((json) => {
 
-        // filter notes array and exclude the one to be deleted by id
-        const result = json.filter((note) => note.note_id !== noteId);
+//         // filter notes array and exclude the one to be deleted by id
+//         const result = json.filter((note) => note.note_id !== noteId);
   
-        // write the new array to the json file 
-        writeJsonFile('./db/db.json', result);
+//         // write the new array to the json file 
+//         writeJsonFile('./db/db.json', result);
   
-        // response
-        res.json(`Note with ID ${noteId} has been deleted 🗑️`);
-    });
-});
+//         // response
+//         res.json(`Note with ID ${noteId} has been deleted`);
+//     });
+// });
 
 // wildcard returns index.html (homepage)
 app.get('*', (req, res) =>
