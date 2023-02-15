@@ -8,7 +8,7 @@ const writeJsonFile = (directory, file) =>
         err ? console.log(err) : console.log('New note added to file')
     );
 
-// utilizes readFile and writeFile for json 
+// utilizes fs and writeFile for json 
     // text is the new content to be appended to file
     // file is the json file to be modifed
 const appendJsonFile = (text, file) => {
