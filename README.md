@@ -51,6 +51,7 @@ App functionality:
 Code can be downloaded from the repository on GitHub and run in Node.js. The application utilises Express.js for back end and is deployed on Heroku platform. 
 
 ---
+
 ## Demo
 
 
