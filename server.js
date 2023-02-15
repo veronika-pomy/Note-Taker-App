@@ -63,9 +63,10 @@ app.post('/api/notes', (req, res) => {
             body: newNote,
         };
 
+        console.log(response);
         res.status(201).json(response);
     } else {
-        res.status(500).json('Error in creating a new note ❌');
+        res.status(500).json('Error in creating a new note ');
     }
 });
 
@@ -77,7 +78,7 @@ app.delete('/api/notes/:id', (req, res) => {
             console.log(err);
         } else {
             let json = JSON.parse(data);
-            
+
             // filter notes array and exclude the one to be deleted by id
             const result = json.filter((note) => note.id !== noteId);
   
