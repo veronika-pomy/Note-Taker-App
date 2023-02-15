@@ -70,20 +70,23 @@ app.post('/api/notes', (req, res) => {
 });
 
 // DELETE Route for specific note by id
-app.delete('api/notes/:id', (req, res) => {
+app.delete('/api/notes/:id', (req, res) => {
     const noteId = req.params.id;
-    fs.readFile('./db/db.json','utf8')
-      .then((data) => JSON.parse(data))
-      .then((json) => {
-
-        // filter notes array and exclude the one to be deleted by id
-        const result = json.filter((note) => note.id !== noteId);
+    fs.readFile('./db/db.json','utf8',  (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            let json = JSON.parse(data);
+            
+            // filter notes array and exclude the one to be deleted by id
+            const result = json.filter((note) => note.id !== noteId);
   
-        // write the new array to the json file 
-        writeJsonFile('./db/db.json', result);
+            // write the new array to the json file 
+            writeJsonFile('./db/db.json', result);
   
-        // response
-        res.json(`Note with ID ${noteId} has been deleted`);
+            // response
+            res.json(`Note with ID ${noteId} has been deleted`);
+        }
     });
 });
 
