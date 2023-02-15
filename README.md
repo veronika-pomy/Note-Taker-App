@@ -48,7 +48,7 @@ App functionality:
 
 ## Installation
 
-Code can be downloaded from the repository on GitHub and run in Node.js. The application utilises express.js for back end and is deployed on Heroku platform. 
+Code can be downloaded from the repository on GitHub and run in Node.js. The application utilises Express.js for back end and is deployed on Heroku platform. 
 
 ---
 ## Demo
@@ -82,7 +82,7 @@ This list includes resources used for the project.
 - [uuid npm package](https://www.npmjs.com/package/uuid?activeTab=readme)
 
 Custom functions:
-- customLogger.js is based on clog middleware function from the Northwestern Coding Boot Camp Express module (24-Stu-Custom-Middleware)
+- customLogger.js is based on clog middleware function from the Northwestern Coding Boot Camp Express module (24_Stu-Custom-Middleware)
 - fsUtils.js is based on helper functions from the Northwestern Coding Boot Camp Express module (28_Stu-Mini-Project)
 
 <!-- License & badge -->

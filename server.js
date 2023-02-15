@@ -45,8 +45,8 @@ app.post('/api/notes', (req, res) => {
     // destructure the requested obj first
     const { title, text } = req.body;
 
-    // check that the note to be saved has a title before making a new note
-    if (title) {
+    // check that the note to be saved has a title and text before making a new note
+    if (title, text) {
         const newNote = {
             title,
             text,
