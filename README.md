@@ -56,7 +56,7 @@ Check out the Note Taker App [here!](https://application-note-taker.herokuapp.co
 
 ## Demo
 
-
+https://user-images.githubusercontent.com/111567114/219423033-99b9b2ca-2695-4740-94a6-72fe16fdbcf4.mp4
 
 ---
 
@@ -92,4 +92,4 @@ Custom functions:
 
 <!-- License & badge -->
 [license-shield]: https://img.shields.io/badge/license-MIT-blue?style=for-the-badge
-[license-url]: https://github.com/veronika-pomy/Readme-Generator/blob/main/LICENSE
+[license-url]: https://github.com/veronika-pomy/Note-Taker-App/blob/main/LICENSE
